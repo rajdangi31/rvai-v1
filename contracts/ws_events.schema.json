@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rvai.local/contracts/ws_events.schema.json",
+  "title": "StateWebSocketEvent",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["type", "states"],
+      "properties": {
+        "type": { "const": "snapshot" },
+        "states": {
+          "type": "array",
+          "items": { "$ref": "state_view.schema.json" }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": ["type", "state"],
+      "properties": {
+        "type": { "const": "state" },
+        "state": { "$ref": "state_view.schema.json" }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

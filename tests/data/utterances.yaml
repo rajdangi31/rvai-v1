@@ -1,0 +1,43 @@
+# Expected AI outcomes for offline rule-parser / live LLM evaluation.
+# Quote ON/OFF so YAML does not coerce them to booleans.
+# kind: command | clarification
+
+- text: turn on the kitchen
+  kind: command
+  target: kitchen
+  action: "ON"
+
+- text: turn off the galley
+  kind: command
+  target: kitchen
+  action: "OFF"
+
+- text: is the lounge on
+  kind: command
+  target: main_cabin
+  action: "STATUS"
+
+- text: switch on bathroom lights
+  kind: command
+  target: bathroom
+  action: "ON"
+
+- text: power off exterior
+  kind: command
+  target: exterior
+  action: "OFF"
+
+- text: check bedroom status
+  kind: command
+  target: bedroom
+  action: "STATUS"
+
+- text: turn on the kitchen and bathroom
+  kind: clarification
+  reason: multiple_targets
+
+- text: turn on all lights
+  kind: clarification
+
+- text: make it cozy
+  kind: clarification

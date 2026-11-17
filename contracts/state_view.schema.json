@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rvai.local/contracts/state_view.schema.json",
+  "title": "TargetStateView",
+  "type": "object",
+  "required": ["target", "actual", "fault", "fault_available", "fresh"],
+  "properties": {
+    "target": { "type": "string" },
+    "display_name": { "type": "string" },
+    "actual": {
+      "type": ["string", "null"],
+      "enum": ["ON", "OFF", null]
+    },
+    "pending": {
+      "type": ["string", "null"],
+      "enum": ["ON", "OFF", "STATUS", null]
+    },
+    "fault": { "type": ["string", "null"] },
+    "fault_available": { "type": "boolean" },
+    "fresh": { "type": "boolean" },
+    "updated_at": { "type": ["number", "null"] }
+  },
+  "additionalProperties": true
+}

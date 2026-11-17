@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-rv-skeleton"
+version = "0.4.0"
+description = "Smart RV V1 Jetson Stack (Raj): AI Pipeline, Safety Layer, FastAPI Backend & Matter Translator"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+    "httpx>=0.27",
+    "PyYAML>=6.0",
+    "fastapi>=0.111",
+    "uvicorn>=0.30",
+    "websockets>=12.0",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+stt-local = [
+    "faster-whisper>=1.0",
+]
+mic = [
+    "sounddevice>=0.4",
+]
+dev = [
+    "pytest>=7.0",
+]
+
+[project.scripts]
+rvai-ai = "ai_pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+include = [
+    "shared*",
+    "ai_pipeline*",
+    "software_guardrails*",
+    "matter_bridge*",
+    "backend*",
+    "hardware_telemetry*",
+    "web*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

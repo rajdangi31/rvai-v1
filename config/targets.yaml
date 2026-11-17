@@ -1,0 +1,45 @@
+# V1 Target Registry — AI aliases for all zones; only commissioned targets may actuate.
+# node_id is optional: null means known to AI/Safety but not yet commissioned on Matter.
+# Quote ON/OFF so YAML does not coerce them to booleans.
+# Start with one plug (kitchen). Fill other node_id values after commissioning.
+
+targets:
+  - id: kitchen
+    display_name: Kitchen
+    node_id: 1
+    endpoint_id: 1
+    aliases: [galley, "cooking area", "kitchen lights", "kitchen light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: bedroom
+    display_name: Bedroom
+    node_id: null
+    endpoint_id: 1
+    aliases: ["bedroom lights", "bedroom light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: main_cabin
+    display_name: Main Cabin
+    node_id: null
+    endpoint_id: 1
+    aliases: [lounge, cabin, "living room", "main cabin", "main cabin lights"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: bathroom
+    display_name: Bathroom
+    node_id: null
+    endpoint_id: 1
+    aliases: [washroom, restroom, "bathroom lights", "bathroom light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: exterior
+    display_name: Exterior
+    node_id: null
+    endpoint_id: 1
+    aliases: [outside, outdoor, "exterior lights", "exterior light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true

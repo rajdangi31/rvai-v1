@@ -1,0 +1,41 @@
+# Test registry: all zones commissioned so lifecycle tests can cover each target.
+targets:
+  - id: kitchen
+    display_name: Kitchen
+    node_id: 1
+    endpoint_id: 1
+    aliases: [galley, "cooking area", "kitchen lights", "kitchen light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: bedroom
+    display_name: Bedroom
+    node_id: 2
+    endpoint_id: 1
+    aliases: ["bedroom lights", "bedroom light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: main_cabin
+    display_name: Main Cabin
+    node_id: 3
+    endpoint_id: 1
+    aliases: [lounge, cabin, "living room", "main cabin", "main cabin lights"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: bathroom
+    display_name: Bathroom
+    node_id: 4
+    endpoint_id: 1
+    aliases: [washroom, restroom, "bathroom lights", "bathroom light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true
+
+  - id: exterior
+    display_name: Exterior
+    node_id: 5
+    endpoint_id: 1
+    aliases: [outside, outdoor, "exterior lights", "exterior light"]
+    supported_actions: ["ON", "OFF", "STATUS"]
+    enabled: true

@@ -1,0 +1,41 @@
+# V1 voice regression expectations derived from RVAI real-audio clips.
+# Intent layer only: transcript -> clarification OR {target,cmd}.
+# Unsupported V1 actions (dimming, telemetry, multi-zone) must clarify, never actuate.
+
+cases:
+  - id: turn_on_bedroom
+    transcript: "Turn on the bedroom lights."
+    expect: { kind: command, target: bedroom, cmd: "ON" }
+
+  - id: turn_off_outside
+    transcript: "turn off the outside lights"
+    expect: { kind: command, target: exterior, cmd: "OFF" }
+
+  - id: check_bathroom
+    transcript: "Check the bathroom light."
+    expect: { kind: command, target: bathroom, cmd: "STATUS" }
+
+  - id: check_main_cabin
+    transcript: "Check the main cabin lights."
+    expect: { kind: command, target: main_cabin, cmd: "STATUS" }
+
+  - id: dim_kitchen_unsupported
+    transcript: "dim the kitchen lights to 20%"
+    expect: { kind: clarification, reason: unsupported_action }
+
+  - id: make_lights_cozy
+    transcript: "Make the lights cozy."
+    expect: { kind: clarification }
+
+  - id: multi_zone
+    transcript: "Turn off the bedroom and kitchen lights."
+    expect: { kind: clarification, reason: multiple_targets }
+
+  - id: cave_in_must_not_actuate
+    # Whisper misheard "cabin" as "cave in" — must not invent a cabin command.
+    transcript: "Set the cave in lights to 75%."
+    expect: { kind: clarification }
+
+  - id: battery_status_unsupported
+    transcript: "What's the battery status?"
+    expect: { kind: clarification }

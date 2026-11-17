@@ -1,0 +1,40 @@
+# Environment / secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Runtime outputs
+static/voice_outputs/
+*.wav
+!tests/**/*.wav
+
+# IDE / OS
+.idea/
+.vscode/
+.cursor/
+*.swp
+Thumbs.db
+Desktop.ini
+
+# Models / large binaries (keep out of git)
+models/
+tools/piper/
+tools/whisper/
+tools/downloads/
